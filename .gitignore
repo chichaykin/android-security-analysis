@@ -1,0 +1,23 @@
+# Android Analysis Files
+*.apk
+android_analysis/ru.oneme.app_decompiled/
+android_analysis/ru.oneme.app_decoded/
+android_analysis/*.apk
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary Files
+tmp/
+temp/
+cache/
