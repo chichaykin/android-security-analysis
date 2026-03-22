@@ -1,6 +1,20 @@
 # Permission Analysis: ru.oneme.app
 
+**App Version:** 26.9.1 (6643)  
+**APK File Date:** 2026-03-21 20:10:18 +0800
+
 ## Critical Permission Investigation
+
+## Priority Summary
+
+- **P1:** `REQUEST_INSTALL_PACKAGES`
+- **P2:** permissions that materially increase persistence or sensitive-data access
+- **P3:** standard messenger permissions with expected functional use
+
+### Risk Change
+
+- **What remained high risk:** package installation capability is still the most severe permission-level concern.
+- **What did not escalate to RCE:** no direct evidence of `Runtime.exec`, shell execution, or root-command orchestration was found in the current static review.
 
 ### REQUEST_INSTALL_PACKAGES Permission 🚨
 

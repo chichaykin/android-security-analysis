@@ -3,6 +3,8 @@
 android_analysis/ru.oneme.app_decompiled/
 android_analysis/ru.oneme.app_decoded/
 android_analysis/*.apk
+analysis_artifacts/
+*.tar
 
 # System Files
 .DS_Store

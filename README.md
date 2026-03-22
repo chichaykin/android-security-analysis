@@ -76,6 +76,12 @@ This project provides comprehensive security analysis of Android APK files, incl
 - 📞 **[Contacts Analysis](android_analysis/CONTACTS_ANALYSIS_RU.md)** - Contact access investigation (Russian)
 - ⚡ **[Permissions Deep Dive](android_analysis/PERMISSION_ANALYSIS.md)** - Dangerous permissions breakdown
 
+## MVP Roadmap
+
+The repository now also includes a product and engineering plan for turning the current analysis workflow into a behavioral APK analysis tool.
+
+- **[MVP Plan (RU)](docs/MVP_PLAN_RU.md)** - Scope, architecture, 12-week roadmap, effort estimates, and post-MVP backlog
+
 ## Usage
 
 1. **Extract APK from device:**
@@ -95,9 +101,16 @@ This project provides comprehensive security analysis of Android APK files, incl
    jadx -d decompiled_app app.apk
    ```
 
+4. **Collect artifacts from a connected device:**
+   ```bash
+   ./scripts/pull_oneme_for_analysis.sh
+   ```
+
 ## Security Considerations
 
 ⚠️ **Warning:** Always analyze APK files in a secure, isolated environment. Some applications may contain malicious code.
+
+Raw pulled artifacts and large binary outputs are intentionally kept out of git via `.gitignore`. Store them outside the repository or in dedicated artifact storage.
 
 ## License
 
