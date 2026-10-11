@@ -1,0 +1,59 @@
+{
+  "evidence_id": "E05",
+  "method": "Read-only dumpsys package and cmd appops get snapshots before and after analysis; no application UI was opened.",
+  "permission_and_flags_equal": true,
+  "appops_modes_equal": true,
+  "test_mutations": [],
+  "runtime_permissions": {
+    "android.permission.POST_NOTIFICATIONS": {
+      "granted": true,
+      "flags": " USER_SET|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.ACCESS_FINE_LOCATION": {
+      "granted": false,
+      "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.READ_MEDIA_VISUAL_USER_SELECTED": {
+      "granted": false,
+      "flags": " USER_SET|USER_FIXED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.BLUETOOTH_CONNECT": {
+      "granted": false,
+      "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.ACCESS_COARSE_LOCATION": {
+      "granted": false,
+      "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.READ_MEDIA_IMAGES": {
+      "granted": false,
+      "flags": " USER_SET|USER_FIXED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.WRITE_CONTACTS": {
+      "granted": false,
+      "flags": " USER_SET|USER_FIXED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.CAMERA": {
+      "granted": true,
+      "flags": " USER_SET|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.READ_MEDIA_AUDIO": {
+      "granted": false,
+      "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.READ_MEDIA_VIDEO": {
+      "granted": false,
+      "flags": " USER_SET|USER_FIXED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.RECORD_AUDIO": {
+      "granted": true,
+      "flags": " USER_SET|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    },
+    "android.permission.READ_CONTACTS": {
+      "granted": false,
+      "flags": " USER_SET|USER_FIXED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+    }
+  },
+  "process_present_at_final_read": true,
+  "limitations": "Access timestamps and personal data omitted. This is a configuration snapshot, not a feature-flow or network behavior test."
+}

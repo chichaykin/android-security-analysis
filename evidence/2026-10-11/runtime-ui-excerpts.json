@@ -1,0 +1,119 @@
+{
+  "evidence_id": "E08/E09-UI",
+  "base_apk_sha256": "a9a76d5b15f1ed13f0fd368ebbc2cf0bb3c8567d15e4d229944865358d31c5a9",
+  "method": "Exact selected accessibility nodes from private XML. All unrelated nodes, account identifiers, conversation content and device identifiers are omitted.",
+  "excerpts": [
+    {
+      "run": "run-auth-01",
+      "scenario": "S04-camera-deny",
+      "private_source_name": "permission-dialog.ui.private.xml",
+      "private_source_sha256": "e5b5d31e5c15ebb5ba376d21779f5ff845ccfe05d28aa6515f70b095e07782fb",
+      "selected_node": {
+        "resource-id": "com.android.permissioncontroller:id/permission_message",
+        "package": "com.google.android.permissioncontroller",
+        "class": "android.widget.TextView",
+        "text": "Allow MAX to take pictures and record video?",
+        "content-desc": "",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[154,1235][1190,1428]"
+      }
+    },
+    {
+      "run": "run-auth-01",
+      "scenario": "S04-camera-deny",
+      "private_source_name": "denied-result.ui.private.xml",
+      "private_source_sha256": "ece085631b86d4c4641d90f846aefc35680698d26b9e3fa20693886f108c8c00",
+      "selected_node": {
+        "resource-id": "",
+        "package": "ru.oneme.app",
+        "class": "android.widget.TextView",
+        "text": "To scan a QR code, please allow camera access",
+        "content-desc": "",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[36,2302][1308,2359]"
+      }
+    },
+    {
+      "run": "run-auth-01",
+      "scenario": "S04-camera-revoke",
+      "private_source_name": "allowed-result.ui.private.xml",
+      "private_source_sha256": "f93e9cfd2d80f739b54326cb29b47b611f54b8bc158ef9bb29c4577ae8e258f6",
+      "selected_node": {
+        "resource-id": "ru.oneme.app:id/qrscanner_camera_preview",
+        "package": "ru.oneme.app",
+        "class": "android.widget.FrameLayout",
+        "text": "",
+        "content-desc": "",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[0,0][1344,2992]"
+      }
+    },
+    {
+      "run": "run-auth-01",
+      "scenario": "S04-media-deny",
+      "private_source_name": "denied-result.ui.private.xml",
+      "private_source_sha256": "26b8016973b3d333f42c07dd15ae059a5e92cee5e9cc73a5a2518b8f5f6358b2",
+      "selected_node": {
+        "resource-id": "",
+        "package": "ru.oneme.app",
+        "class": "android.widget.TextView",
+        "text": "No\u00a0access to\u00a0files and\u00a0media",
+        "content-desc": "",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[60,1461][1284,1507]"
+      }
+    },
+    {
+      "run": "run-auth-01",
+      "scenario": "S04-media-revoke",
+      "private_source_name": "allowed-result.ui.private.xml",
+      "private_source_sha256": "c8ff1d8cc1dd5928092f10f2fa523bef44df0ea5510e17a20eaa39cb07f3c544",
+      "selected_node": {
+        "resource-id": "ru.oneme.app:id/gallery_simple_drawee_view",
+        "package": "ru.oneme.app",
+        "class": "android.widget.ImageView",
+        "text": "",
+        "content-desc": "",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[0,307][444,751]"
+      }
+    },
+    {
+      "run": "run-microphone-02",
+      "scenario": "S05-microphone-denial",
+      "private_source_name": "microphone-system-prompt.ui.private.xml",
+      "private_source_sha256": "1c0d2ed83097e886cc40ee6161e2e99780bfcec3e6456d4bfa06e4bf46f57b9e",
+      "selected_node": {
+        "resource-id": "com.android.permissioncontroller:id/permission_message",
+        "package": "com.google.android.permissioncontroller",
+        "class": "android.widget.TextView",
+        "text": "Allow MAX to record audio?",
+        "content-desc": "",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[154,1283][1190,1380]"
+      }
+    },
+    {
+      "run": "run-microphone-02",
+      "scenario": "S05-microphone-denial",
+      "private_source_name": "microphone-fallback.ui.private.xml",
+      "private_source_sha256": "e377db70631701f3bc37a022081501cfb549ebf42c4fe101da7f7270e0f7bd50",
+      "selected_node": {
+        "resource-id": "ru.oneme.app:id/oneme_message_input_right_outer_icon",
+        "package": "ru.oneme.app",
+        "class": "android.widget.Button",
+        "text": "",
+        "content-desc": "Record voice message",
+        "clickable": "false",
+        "enabled": "true",
+        "bounds": "[1218,2794][1326,2902]"
+      }
+    }
+  ]
+}

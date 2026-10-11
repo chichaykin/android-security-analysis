@@ -23,3 +23,13 @@ Thumbs.db
 tmp/
 temp/
 cache/
+
+# Private research snapshots and Python caches
+*.private.*
+__pycache__/
+*.pyc
+
+# Runtime packet captures and local signing keys
+*.pcap
+*.pcapng
+*.keystore

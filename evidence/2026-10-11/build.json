@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "collected_at_utc": "2026-10-11T02:45:35.866467+00:00",
+  "package": "ru.oneme.app",
+  "version_name": "26.35.1",
+  "version_code": 6867,
+  "min_sdk": 26,
+  "target_sdk": 37,
+  "installer_package": "ru.vk.store",
+  "android_release": "17",
+  "apks": [
+    {
+      "name": "base.apk",
+      "size_bytes": 27736715,
+      "sha256": "a9a76d5b15f1ed13f0fd368ebbc2cf0bb3c8567d15e4d229944865358d31c5a9",
+      "signer_certificate_sha256": "1684414033eb263e2c615f8b7df5ed8793850a07656304997fbf07e9e21e1e93"
+    },
+    {
+      "name": "split_config.arm64_v8a.apk",
+      "size_bytes": 26281620,
+      "sha256": "dd60b53a4055aeb8e0e94fc12a48a3fe72a97816723338581b3145c87820737b",
+      "signer_certificate_sha256": "1684414033eb263e2c615f8b7df5ed8793850a07656304997fbf07e9e21e1e93"
+    },
+    {
+      "name": "split_config.xhdpi.apk",
+      "size_bytes": 3570089,
+      "sha256": "59208feddef4c955aa19b2c413dfa978b22799c5921fd046e37bd502740246e9",
+      "signer_certificate_sha256": "1684414033eb263e2c615f8b7df5ed8793850a07656304997fbf07e9e21e1e93"
+    }
+  ],
+  "tools": {
+    "adb": "Android Debug Bridge version 1.0.41",
+    "apksigner": "0.9",
+    "adb_platform_tools": "37.0.0-14910828",
+    "aapt2": "2.20-13193326 (build-tools 36.0.0)",
+    "apkanalyzer": "Android SDK Command-line Tools 21.0",
+    "jadx": "1.5.6",
+    "java": "OpenJDK 21.0.10",
+    "jadx_release_archive_sha256": "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974"
+  },
+  "device": "Pixel 8 Pro (personal device; identifier withheld)",
+  "android_build": "Android 17 / build CP3A.260905.009",
+  "source": "Installed RuStore-channel APK set obtained by adb pull; no store update check was performed in the RuStore app.",
+  "decompilation": {
+    "resources_decoded": false,
+    "reported_error_count": 558,
+    "conclusion_policy": "Selected substantive code conclusions were checked against DEX disassembly."
+  }
+}

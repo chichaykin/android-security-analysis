@@ -1,0 +1,60 @@
+{
+  "camera": {
+    "route": [
+      "ru.oneme.app:id/oneme_main_settings_bottom_item",
+      {
+        "package": "ru.oneme.app",
+        "class": "android.widget.TextView",
+        "text": "Devices",
+        "click_parent": true
+      },
+      {
+        "package": "ru.oneme.app",
+        "class": "android.widget.TextView",
+        "text": "Sign in with QR code",
+        "click_parent": true
+      }
+    ],
+    "allowed_marker": "ru.oneme.app:id/qrscanner_camera_preview",
+    "denied_marker": {
+      "package": "ru.oneme.app",
+      "class": "android.widget.TextView",
+      "text": "To scan a QR code, please allow camera access"
+    },
+    "back_steps": 2
+  },
+  "media": {
+    "route": [
+      "ru.oneme.app:id/oneme_main_settings_bottom_item",
+      "ru.oneme.app:id/oneme_right_primary_icon_button",
+      "ru.oneme.app:id/profile_edit_avatar",
+      {
+        "package": "ru.oneme.app",
+        "class": "android.widget.Button",
+        "text": "Upload from gallery"
+      }
+    ],
+    "request_route": [
+      {
+        "package": "ru.oneme.app",
+        "class": "android.widget.TextView",
+        "text": "Allow access",
+        "click_parent": true
+      }
+    ],
+    "allowed_marker": "ru.oneme.app:id/gallery_simple_drawee_view",
+    "denied_marker": {
+      "package": "ru.oneme.app",
+      "class": "android.widget.TextView",
+      "text": "No\u00a0access to\u00a0files and\u00a0media"
+    },
+    "back_steps": 2,
+    "setup_grants": [
+      "android.permission.CAMERA"
+    ],
+    "companion_permissions": [
+      "android.permission.READ_MEDIA_VIDEO",
+      "android.permission.READ_MEDIA_VISUAL_USER_SELECTED"
+    ]
+  }
+}

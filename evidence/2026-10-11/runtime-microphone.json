@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "package": "ru.oneme.app",
+  "version_name": "26.35.1",
+  "version_code": 6867,
+  "base_apk_sha256": "a9a76d5b15f1ed13f0fd368ebbc2cf0bb3c8567d15e4d229944865358d31c5a9",
+  "environment": {
+    "type": "Isolated research emulator; separate from the personal Pixel",
+    "android_release": "17",
+    "api_level": "37",
+    "android_build_fingerprint": "google/sdk_gphone16k_arm64/emu64a16k:17/CP41.260828.004.A7/16296984:userdebug/dev-keys",
+    "wifi_enabled_setting": "0"
+  },
+  "results": [
+    {
+      "id": "S05-microphone-denial",
+      "started_at_utc": "2026-10-11T03:58:02.998065+00:00",
+      "observations": {
+        "permission": "android.permission.RECORD_AUDIO",
+        "system_microphone_prompt_verified": true,
+        "permission_denied_verified": true,
+        "returned_to_empty_composer_verified": true,
+        "microphone_explanation_observed": false,
+        "audio_permission_granted_by_test": false,
+        "send_action_performed": false
+      },
+      "status": "passed",
+      "ended_at_utc": "2026-10-11T03:58:08.566257+00:00"
+    }
+  ],
+  "permission_baseline": {
+    "grants": {
+      "android.permission.POST_NOTIFICATIONS": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.ACCESS_FINE_LOCATION": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.READ_MEDIA_VISUAL_USER_SELECTED": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.BLUETOOTH_CONNECT": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.ACCESS_COARSE_LOCATION": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.READ_MEDIA_IMAGES": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.WRITE_CONTACTS": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.CAMERA": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.READ_MEDIA_AUDIO": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.READ_MEDIA_VIDEO": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.RECORD_AUDIO": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      },
+      "android.permission.READ_CONTACTS": {
+        "granted": false,
+        "flags": " USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED"
+      }
+    },
+    "appops_modes": [
+      [
+        "ACCEPT_HANDOVER",
+        "ignore"
+      ],
+      [
+        "ACCESS_LOCAL_NETWORK",
+        "ignore"
+      ],
+      [
+        "ACCESS_MEDIA_LOCATION",
+        "ignore"
+      ],
+      [
+        "ACTIVITY_RECOGNITION",
+        "ignore"
+      ],
+      [
+        "ADD_VOICEMAIL",
+        "ignore"
+      ],
+      [
+        "ANSWER_PHONE_CALLS",
+        "ignore"
+      ],
+      [
+        "BLUETOOTH_ADVERTISE",
+        "ignore"
+      ],
+      [
+        "BLUETOOTH_CONNECT",
+        "ignore"
+      ],
+      [
+        "BLUETOOTH_SCAN",
+        "ignore"
+      ],
+      [
+        "BODY_SENSORS",
+        "ignore"
+      ],
+      [
+        "CALL_PHONE",
+        "ignore"
+      ],
+      [
+        "CAMERA",
+        "ignore"
+      ],
+      [
+        "COARSE_LOCATION",
+        "ignore"
+      ],
+      [
+        "FINE_LOCATION",
+        "ignore"
+      ],
+      [
+        "GET_ACCOUNTS",
+        "ignore"
+      ],
+      [
+        "NEARBY_WIFI_DEVICES",
+        "ignore"
+      ],
+      [
+        "POST_NOTIFICATION",
+        "ignore"
+      ],
+      [
+        "PROCESS_OUTGOING_CALLS",
+        "ignore"
+      ],
+      [
+        "RANGING",
+        "ignore"
+      ],
+      [
+        "READ_BLOOD_PRESSURE",
+        "ignore"
+      ],
+      [
+        "READ_CALENDAR",
+        "ignore"
+      ],
+      [
+        "READ_CALL_LOG",
+        "ignore"
+      ],
+      [
+        "READ_CELL_BROADCASTS",
+        "ignore"
+      ],
+      [
+        "READ_CONTACTS",
+        "ignore"
+      ],
+      [
+        "READ_EXTERNAL_STORAGE",
+        "ignore"
+      ],
+      [
+        "READ_HEART_RATE",
+        "ignore"
+      ],
+      [
+        "READ_HEART_RATE_VARIABILITY",
+        "ignore"
+      ],
+      [
+        "READ_MEDIA_AUDIO",
+        "ignore"
+      ],
+      [
+        "READ_MEDIA_IMAGES",
+        "ignore"
+      ],
+      [
+        "READ_MEDIA_VIDEO",
+        "ignore"
+      ],
+      [
+        "READ_MEDIA_VISUAL_USER_SELECTED",
+        "ignore"
+      ],
+      [
+        "READ_OXYGEN_SATURATION",
+        "ignore"
+      ],
+      [
+        "READ_PHONE_NUMBERS",
+        "ignore"
+      ],
+      [
+        "READ_PHONE_STATE",
+        "ignore"
+      ],
+      [
+        "READ_RESPIRATORY_RATE",
+        "ignore"
+      ],
+      [
+        "READ_SKIN_TEMPERATURE",
+        "ignore"
+      ],
+      [
+        "READ_SMS",
+        "ignore"
+      ],
+      [
+        "RECEIVE_MMS",
+        "ignore"
+      ],
+      [
+        "RECEIVE_SMS",
+        "ignore"
+      ],
+      [
+        "RECEIVE_WAP_PUSH",
+        "ignore"
+      ],
+      [
+        "RECORD_AUDIO",
+        "ignore"
+      ],
+      [
+        "SEND_SMS",
+        "ignore"
+      ],
+      [
+        "USE_SIP",
+        "ignore"
+      ],
+      [
+        "UWB_RANGING",
+        "ignore"
+      ],
+      [
+        "VIBRATE",
+        "allow"
+      ],
+      [
+        "WAKE_LOCK",
+        "allow"
+      ],
+      [
+        "WRITE_CALENDAR",
+        "ignore"
+      ],
+      [
+        "WRITE_CALL_LOG",
+        "ignore"
+      ],
+      [
+        "WRITE_CONTACTS",
+        "ignore"
+      ],
+      [
+        "WRITE_EXTERNAL_STORAGE",
+        "ignore"
+      ]
+    ]
+  },
+  "transmission_policy": "No message, contact, file, call or diagnostic submission actions are scripted.",
+  "network_limits": "No TCP reassembly, TLS decryption, encrypted DNS decoding or IPv6 extension traversal. SNI is parsed only from complete extensions in one segment and can be an outer name under ECH. Absence of an HTTP signature does not prove absence of cleartext traffic. No packet is automatically attributed to MAX. Compare the app-stopped control and scenario windows.",
+  "permission_and_appops_modes_restored": true,
+  "evidence_id": "E09",
+  "account_state": "User-supplied signed-in account designated for testing; pre-existing conversations were present. Account details are withheld.",
+  "network_observations": [
+    {
+      "scenario": "S05-microphone-denial",
+      "pcap_sha256": "e02763ba98d95d97e50d0677759af25b9838181352c686de742a82bd2f7ca358",
+      "packet_count": 2,
+      "unparsed_or_non_tcp_udp_packets": 0,
+      "http_request_signatures": [],
+      "tls_sni_observations": []
+    }
+  ],
+  "emulator_version": "36.6.11 (15507667)",
+  "exploratory_run": {
+    "status": "failed tooling assertion",
+    "reason": "The first run required a microphone explanation after denial. None appeared; the app returned to the empty composer. Assertions were revised after route discovery and the scenario was repeated.",
+    "permission_and_appops_modes_restored": true,
+    "security_defect_established": false
+  },
+  "tested_source_sha256": {
+    "scripts/run_max_runtime.py": "73acc87866d3b2e2f7d71c83c56353bf1036b39222bbaf42fef0dcd4220fd423",
+    "scripts/pcap_metadata.py": "9c25e7ee4c6644dc4a352257e48bb1467646a79f6df3d051d62622b16420c79d",
+    "scripts/test_microphone_denial.py": "d59b74dd475d1db420a225f953e3a1108e4fe561b2bea57aa639e86ae2dfb4a1"
+  },
+  "installed_probe_apk_sha256": "dc935bf266437f72725c6c5307acde480603ddb7dd5a3c5536a9f0191d01c0c1"
+}

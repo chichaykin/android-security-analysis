@@ -1,0 +1,45 @@
+{
+  "evidence_id": "E06",
+  "checked_on": "2026-10-11",
+  "checks": {
+    "collector_mock_tests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "collector_real_device_run": "passed; all three APKs verified",
+    "shell_syntax": "passed",
+    "python_compilation": "passed",
+    "repeat_static_json": "identical",
+    "repeat_network_xml": "identical",
+    "repeat_bytecode_excerpts": "identical",
+    "aapt2_permission_crosscheck": "58 unique names matched",
+    "aapt2_network_crosscheck": "8 exact domains matched",
+    "permission_and_appops_preservation": "unchanged",
+    "runtime_feature_flows": "Camera refusal/revocation, visual-media refusal/revocation and separate microphone refusal passed bounded assertions. Microphone active-recording revocation not run.",
+    "network_capture": "Isolated emulator control/startup/background and reviewed feature captures completed; guest-wide metadata, no TLS payload decryption or per-packet MAX attribution.",
+    "in_app_update_availability": "not checked",
+    "public_language_scan": "passed",
+    "public_identifier_scan": "passed",
+    "local_document_links": "passed",
+    "tampered_base_apk": "rejected before extraction",
+    "runtime_guardrail_and_parser_tests": {
+      "passed": 15,
+      "failed": 0
+    },
+    "isolated_emulator_restoration": "Pre-authentication, authenticated and microphone-refusal run baselines restored; camera/media per-scenario grants, flags and AppOps modes also equal.",
+    "post_message_permission_state": "Grants, flags and AppOps modes match the state before the separately authorized single text send.",
+    "synthetic_fixture_reproduction": "Repeated generation matched SHA-256 68e0f8e2bbdf30e3f1b4188e93821c611e461a41b97b41cd2d5f8a6e4fe6238a",
+    "ui_probe_build": "SDK build and signature verification passed; Unicode field input checked in isolated emulator"
+  },
+  "artifact_sha256": {
+    "build.json": "6903c3167d659151fe2f01078057fc73a712ac1b04966e33b7d4dd2ad3a6632b",
+    "static-summary.json": "2ea81c0cde31655ebd36192b48b51f2e72813a78acd9b49a6a4682b9e4e6f22e",
+    "static-summary.network-policy.xml": "fbd8dfa3428f1e68711bdbc8d05e42912377e2d9ee65eea86a0169c16b928752",
+    "bytecode-excerpts.md": "9ed2662e81cc805bd946e3f825de86eb08d266e4d7446f6ec3bdb8730d763687",
+    "runtime-state.json": "d38570e4a60b98dc3740cb46c15db5ffe50df432d979d480eacd4422f55c7e94",
+    "runtime-preauth.json": "a6b849ef2a034a0316ceaa27c9415e0f09a4962d4410ad49ec245f472353ea07",
+    "runtime-authenticated.json": "515c1f3e2346df8ab28ea96d8f41a70fac1e292e0ddec793fa1a47d1d1ff6a86",
+    "runtime-microphone.json": "272674dca5b9075ebfabebe141cff6265b32e47a2377bdb4c641cdb347aa99cb",
+    "runtime-ui-excerpts.json": "9a4f952b069bca54dcbf70222ea20e97fc71fbec475067a404e222ad51c0c558"
+  }
+}

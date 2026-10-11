@@ -1,139 +1,100 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Collects ru.oneme.app artifacts from a connected Android device into
-# a timestamped folder under analysis_artifacts/.
-#
-# What it tries to collect:
-# 1) Installed APKs (base + splits) via "pm path"
-# 2) /data/data/ru.oneme.app (private app data) via:
-#    - run-as (debuggable builds)
-#    - su (rooted device)
-#    - adb root + direct tar (userdebug/eng builds)
-# 3) /sdcard/Android/data/ru.oneme.app (external app data)
-
-PKG="ru.oneme.app"
-ADB_DEFAULT="/Users/mikhail.chichaykin/Library/Android/sdk/platform-tools/adb"
-ADB_BIN="${ADB_BIN:-$ADB_DEFAULT}"
-ROOT_OUT_DIR="${1:-analysis_artifacts/device_pull}"
-TS="$(date +%Y%m%d_%H%M%S)"
-OUT_DIR="${ROOT_OUT_DIR}/${PKG}_${TS}"
-
-log() { printf '[*] %s\n' "$*"; }
-warn() { printf '[!] %s\n' "$*"; }
-err() { printf '[x] %s\n' "$*"; }
-
-require_cmd() {
-  if ! command -v "$1" >/dev/null 2>&1; then
-    err "Missing command: $1"
-    exit 1
-  fi
+# Collect installed MAX APKs and build metadata. Do not read application data.
+usage() {
+  echo "Usage: $0 --serial DEVICE_SERIAL --output DIRECTORY [--adb PATH] [--apksigner PATH]" >&2
+  exit 2
 }
+serial=""
+output=""
+adb_bin="${ADB_BIN:-adb}"
+apksigner_bin="${APKSIGNER_BIN:-apksigner}"
+while (($#)); do
+  case "$1" in
+    --serial) (($# >= 2)) || usage; serial="$2"; shift 2 ;;
+    --output) (($# >= 2)) || usage; output="$2"; shift 2 ;;
+    --adb) (($# >= 2)) || usage; adb_bin="$2"; shift 2 ;;
+    --apksigner) (($# >= 2)) || usage; apksigner_bin="$2"; shift 2 ;;
+    *) usage ;;
+  esac
+done
+[[ -n "$serial" && -n "$output" ]] || usage
+command -v "$adb_bin" >/dev/null || { echo "adb not found" >&2; exit 1; }
+command -v "$apksigner_bin" >/dev/null || { echo "apksigner not found" >&2; exit 1; }
+command -v python3 >/dev/null || { echo "python3 not found" >&2; exit 1; }
+[[ ! -e "$output" ]] || { echo "Output already exists: $output" >&2; exit 1; }
 
-if [[ ! -x "$ADB_BIN" ]]; then
-  if command -v adb >/dev/null 2>&1; then
-    ADB_BIN="$(command -v adb)"
-  else
-    err "adb not found. Set ADB_BIN or install platform-tools."
-    exit 1
-  fi
-fi
+# Require an explicit, currently connected device; never guess among devices.
+devices="$("$adb_bin" devices)"
+state="$(printf '%s\n' "$devices" | awk -v s="$serial" '$1==s {print $2}')"
+[[ "$state" == device ]] || { echo "Selected device is not connected and authorized" >&2; exit 1; }
+paths="$("$adb_bin" -s "$serial" shell pm path ru.oneme.app | tr -d '\r' | sed -n 's/^package://p')"
+[[ -n "$paths" ]] || { echo "ru.oneme.app is not installed" >&2; exit 1; }
 
-require_cmd tar
-require_cmd sed
-require_cmd tr
-require_cmd date
+parent="$(dirname "$output")"
+mkdir -p "$parent"
+staging="$(mktemp -d "$parent/.max-collection.XXXXXXXX")"
+trap 'rm -rf "$staging"' EXIT
+mkdir -p "$staging/apk"
+: > "$staging/apk-paths.txt"
+while IFS= read -r remote; do
+  [[ -n "$remote" ]] || continue
+  name="$(basename "$remote")"
+  [[ "$name" == *.apk && ! -e "$staging/apk/$name" ]] || { echo "Invalid or duplicate APK name" >&2; exit 1; }
+  "$adb_bin" -s "$serial" pull "$remote" "$staging/apk/$name" >/dev/null
+  [[ -s "$staging/apk/$name" ]] || { echo "APK pull returned an empty file" >&2; exit 1; }
+  printf '%s\n' "$name" >> "$staging/apk-paths.txt"
+done <<< "$paths"
+[[ -s "$staging/apk-paths.txt" ]] || { echo "No APKs collected" >&2; exit 1; }
 
-log "Using adb: $ADB_BIN"
-"$ADB_BIN" start-server >/dev/null
-
-DEVICE_LINE="$($ADB_BIN devices | sed -n '2p' || true)"
-if [[ -z "${DEVICE_LINE// /}" ]]; then
-  err "No device detected. Connect device and enable USB debugging."
-  exit 1
-fi
-
-mkdir -p "$OUT_DIR" "$OUT_DIR/apk" "$OUT_DIR/data"
-
-log "Output folder: $OUT_DIR"
-
-# 1) Pull APK splits
-log "Collecting APK paths from installed package: $PKG"
-APK_PATHS="$($ADB_BIN shell pm path "$PKG" 2>/dev/null | tr -d '\r' | sed -n 's/^package://p')"
-if [[ -z "${APK_PATHS// /}" ]]; then
-  err "Package '$PKG' is not installed on the device."
-  exit 1
-fi
-
-i=0
-while IFS= read -r remote_apk; do
-  [[ -z "$remote_apk" ]] && continue
-  i=$((i + 1))
-  local_name="$(basename "$remote_apk")"
-  log "Pulling APK [$i]: $remote_apk"
-  "$ADB_BIN" pull "$remote_apk" "$OUT_DIR/apk/$local_name" >/dev/null
-  log "Saved: $OUT_DIR/apk/$local_name"
-done <<< "$APK_PATHS"
-
-# 2) Pull /data/data/ru.oneme.app
-PRIVATE_TAR="$OUT_DIR/data/${PKG}_data.tar"
-PRIVATE_METHOD=""
-
-log "Trying private data via run-as"
-if "$ADB_BIN" exec-out "run-as $PKG sh -c 'cd /data/data/$PKG && tar -cf - .'" > "$PRIVATE_TAR" 2>/dev/null; then
-  PRIVATE_METHOD="run-as"
-else
-  rm -f "$PRIVATE_TAR"
-fi
-
-if [[ -z "$PRIVATE_METHOD" ]]; then
-  log "Trying private data via su"
-  if "$ADB_BIN" exec-out "su -c 'cd /data/data/$PKG && tar -cf - .'" > "$PRIVATE_TAR" 2>/dev/null; then
-    PRIVATE_METHOD="su"
-  else
-    rm -f "$PRIVATE_TAR"
-  fi
-fi
-
-if [[ -z "$PRIVATE_METHOD" ]]; then
-  log "Trying private data via adb root"
-  "$ADB_BIN" root >/dev/null 2>&1 || true
-  sleep 1
-  if "$ADB_BIN" exec-out "cd /data/data/$PKG && tar -cf - ." > "$PRIVATE_TAR" 2>/dev/null; then
-    PRIVATE_METHOD="adb-root"
-  else
-    rm -f "$PRIVATE_TAR"
-  fi
-fi
-
-if [[ -n "$PRIVATE_METHOD" ]]; then
-  log "Private data dump succeeded via: $PRIVATE_METHOD"
-  mkdir -p "$OUT_DIR/data/private"
-  tar -xf "$PRIVATE_TAR" -C "$OUT_DIR/data/private" || warn "Could not extract private tar locally; raw tar kept"
-else
-  warn "Could not read /data/data/$PKG (expected on non-rooted production builds)."
-fi
-
-# 3) Pull external app data if present
-EXT_DIR="/sdcard/Android/data/$PKG"
-log "Trying external app data: $EXT_DIR"
-if "$ADB_BIN" shell "[ -d '$EXT_DIR' ]" 2>/dev/null; then
-  "$ADB_BIN" pull "$EXT_DIR" "$OUT_DIR/data/external" >/dev/null 2>&1 || warn "External data pull failed"
-  log "External data saved (if available)"
-else
-  warn "External app data folder not found"
-fi
-
-# Metadata for traceability
-{
-  echo "package=$PKG"
-  echo "collected_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-  echo "adb_bin=$ADB_BIN"
-  echo "private_data_method=${PRIVATE_METHOD:-none}"
-  echo "device_serial=$($ADB_BIN get-serialno 2>/dev/null || true)"
-  echo "device_model=$($ADB_BIN shell getprop ro.product.model 2>/dev/null | tr -d '\r' || true)"
-  echo "android_release=$($ADB_BIN shell getprop ro.build.version.release 2>/dev/null | tr -d '\r' || true)"
-} > "$OUT_DIR/collection_info.txt"
-
-log "Done. Collected artifacts are in: $OUT_DIR"
-log "Tip: compare APK hash with 'shasum -a 256 $OUT_DIR/apk/*.apk'"
+"$adb_bin" -s "$serial" shell getprop ro.build.fingerprint | tr -d '\r' > "$staging/android-build.txt"
+"$adb_bin" -s "$serial" shell getprop ro.build.version.release | tr -d '\r' > "$staging/android-version.txt"
+"$adb_bin" -s "$serial" shell dumpsys package ru.oneme.app > "$staging/package-dump.private.txt"
+"$adb_bin" -s "$serial" shell cmd appops get ru.oneme.app > "$staging/appops-baseline.private.txt"
+"$adb_bin" version > "$staging/adb-version.txt"
+"$apksigner_bin" version > "$staging/apksigner-version.txt"
+for file in "$staging"/apk/*.apk; do
+  "$apksigner_bin" verify --print-certs "$file" > "${file%.apk}.signature.txt"
+done
+python3 - "$staging" <<'PY'
+import datetime, hashlib, json, pathlib, re, sys
+root = pathlib.Path(sys.argv[1])
+dump = (root / 'package-dump.private.txt').read_text()
+def field(pattern):
+    match = re.search(pattern, dump)
+    if not match:
+        raise SystemExit(f'Missing package metadata: {pattern}')
+    return match.group(1)
+apks = []
+for path in sorted((root / 'apk').glob('*.apk')):
+    signature = path.with_suffix('.signature.txt').read_text()
+    digest = re.search(r'Signer #1 certificate SHA-256 digest: ([0-9a-f]+)', signature)
+    if not digest:
+        raise SystemExit(f'Missing signer digest: {path.name}')
+    apks.append({'name': path.name, 'size_bytes': path.stat().st_size,
+                 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                 'signer_certificate_sha256': digest.group(1)})
+manifest = {
+    'schema_version': 1,
+    'collected_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    'package': 'ru.oneme.app',
+    'version_name': field(r'versionName=([^\s]+)'),
+    'version_code': int(field(r'versionCode=(\d+)')),
+    'min_sdk': int(field(r'minSdk=(\d+)')),
+    'target_sdk': int(field(r'targetSdk=(\d+)')),
+    'installer_package': field(r'installerPackageName=([^\s]+)'),
+    'android_release': (root / 'android-version.txt').read_text().strip(),
+    'android_build': (root / 'android-build.txt').read_text().strip(),
+    'apks': apks,
+    'tools': {
+        'adb': (root / 'adb-version.txt').read_text().splitlines()[0],
+        'apksigner': (root / 'apksigner-version.txt').read_text().strip(),
+    },
+    'limits': 'Installed APKs only; no application data or behavioral evidence.'
+}
+(root / 'collection-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+PY
+mv "$staging" "$output"
+trap - EXIT
+printf 'Collected %s APK(s) in %s\n' "$(wc -l < "$output/apk-paths.txt" | tr -d ' ')" "$output"

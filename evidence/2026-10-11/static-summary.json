@@ -1,0 +1,688 @@
+{
+  "schema_version": 1,
+  "base_apk_sha256": "a9a76d5b15f1ed13f0fd368ebbc2cf0bb3c8567d15e4d229944865358d31c5a9",
+  "package": "ru.oneme.app",
+  "version_name": "26.35.1",
+  "version_code": 6867,
+  "target_sdk": 37,
+  "manifest_permissions": [
+    {
+      "name": "android.permission.ACCESS_COARSE_LOCATION",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_FINE_LOCATION",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_NETWORK_STATE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_WIFI_STATE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.BLUETOOTH",
+      "max_sdk": "30"
+    },
+    {
+      "name": "android.permission.BLUETOOTH_CONNECT",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.CAMERA",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.CHANGE_NETWORK_STATE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_CAMERA",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_DATA_SYNC",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_MICROPHONE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_PHONE_CALL",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.INTERNET",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.MANAGE_OWN_CALLS",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.MODIFY_AUDIO_SETTINGS",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.NFC",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.POST_NOTIFICATIONS",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.READ_APP_BADGE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.READ_CONTACTS",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.READ_EXTERNAL_STORAGE",
+      "max_sdk": "32"
+    },
+    {
+      "name": "android.permission.READ_MEDIA_AUDIO",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.READ_MEDIA_IMAGES",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.READ_MEDIA_VIDEO",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.RECEIVE_BOOT_COMPLETED",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.RECORD_AUDIO",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.REQUEST_INSTALL_PACKAGES",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.USE_BIOMETRIC",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.USE_FINGERPRINT",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.USE_FULL_SCREEN_INTENT",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.VIBRATE",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.WAKE_LOCK",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.WRITE_CONTACTS",
+      "max_sdk": null
+    },
+    {
+      "name": "android.permission.WRITE_EXTERNAL_STORAGE",
+      "max_sdk": "29"
+    },
+    {
+      "name": "com.anddoes.launcher.permission.UPDATE_COUNT",
+      "max_sdk": null
+    },
+    {
+      "name": "com.google.android.c2dm.permission.RECEIVE",
+      "max_sdk": null
+    },
+    {
+      "name": "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE",
+      "max_sdk": null
+    },
+    {
+      "name": "com.google.android.gms.permission.AD_ID",
+      "max_sdk": null
+    },
+    {
+      "name": "com.htc.launcher.permission.READ_SETTINGS",
+      "max_sdk": null
+    },
+    {
+      "name": "com.htc.launcher.permission.UPDATE_SHORTCUT",
+      "max_sdk": null
+    },
+    {
+      "name": "com.huawei.android.launcher.permission.CHANGE_BADGE",
+      "max_sdk": null
+    },
+    {
+      "name": "com.huawei.android.launcher.permission.READ_SETTINGS",
+      "max_sdk": null
+    },
+    {
+      "name": "com.huawei.android.launcher.permission.WRITE_SETTINGS",
+      "max_sdk": null
+    },
+    {
+      "name": "com.majeur.launcher.permission.UPDATE_BADGE",
+      "max_sdk": null
+    },
+    {
+      "name": "com.oppo.launcher.permission.READ_SETTINGS",
+      "max_sdk": null
+    },
+    {
+      "name": "com.oppo.launcher.permission.WRITE_SETTINGS",
+      "max_sdk": null
+    },
+    {
+      "name": "com.sec.android.provider.badge.permission.READ",
+      "max_sdk": null
+    },
+    {
+      "name": "com.sec.android.provider.badge.permission.WRITE",
+      "max_sdk": null
+    },
+    {
+      "name": "com.sonyericsson.home.permission.BROADCAST_BADGE",
+      "max_sdk": null
+    },
+    {
+      "name": "com.sonymobile.home.permission.PROVIDER_INSERT_BADGE",
+      "max_sdk": null
+    },
+    {
+      "name": "me.everything.badger.permission.BADGE_COUNT_READ",
+      "max_sdk": null
+    },
+    {
+      "name": "me.everything.badger.permission.BADGE_COUNT_WRITE",
+      "max_sdk": null
+    },
+    {
+      "name": "ru.oneme.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+      "max_sdk": null
+    }
+  ],
+  "exported_components": [
+    {
+      "type": "activity",
+      "name": "one.me.android.MainActivity",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.MAIN"
+          ],
+          "categories": [
+            "android.intent.category.LAUNCHER"
+          ],
+          "data": []
+        },
+        {
+          "actions": [
+            "android.intent.action.SEND"
+          ],
+          "categories": [
+            "android.intent.category.DEFAULT"
+          ],
+          "data": [
+            {
+              "mimeType": "*/*"
+            }
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.SEND_MULTIPLE"
+          ],
+          "categories": [
+            "android.intent.category.DEFAULT"
+          ],
+          "data": [
+            {
+              "mimeType": "*/*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "name": "one.me.android.deeplink.LinkInterceptorActivity",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "categories": [
+            "android.intent.category.DEFAULT",
+            "android.intent.category.BROWSABLE"
+          ],
+          "data": [
+            {
+              "pathPattern": "/..*"
+            },
+            {
+              "scheme": "http"
+            },
+            {
+              "scheme": "@ref/0x7f111100"
+            },
+            {
+              "host": "@ref/0x7f110072"
+            }
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "categories": [
+            "android.intent.category.DEFAULT",
+            "android.intent.category.BROWSABLE"
+          ],
+          "data": [
+            {
+              "scheme": "@ref/0x7f11007c"
+            },
+            {
+              "host": "@ref/0x7f110072"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "one.me.webapp.util.WebAppNfcService",
+      "required_permission": "android.permission.BIND_NFC_SERVICE",
+      "intent_filters": [
+        {
+          "actions": [
+            "android.nfc.cardemulation.action.HOST_APDU_SERVICE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "one.me.calls.impl.service.telecom.TelecomCallService",
+      "required_permission": "android.permission.BIND_TELECOM_CONNECTION_SERVICE",
+      "intent_filters": [
+        {
+          "actions": [
+            "android.telecom.ConnectionService"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "one.me.sdk.vendor.rustore.push.RustoreMessagingService",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "ru.rustore.sdk.pushclient.MESSAGING_EVENT"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "com.vk.push.pushsdk.ipc.PushService",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.HOST_SERVICE",
+            "com.vk.push.PUSH_SERVICE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "com.vk.push.pushsdk.ipc.ForegroundPushService",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.HOST_SERVICE",
+            "com.vk.push.PUSH_SERVICE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "com.vk.push.pushsdk.masterhost.MasterSelectionService",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.HOST_SERVICE",
+            "com.vk.push.MASTER_SERVICE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "com.vk.push.pushsdk.service.TestPushService",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.TEST_PUSH"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "com.google.android.gms.auth.api.signin.RevocationBoundService",
+      "required_permission": "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION",
+      "intent_filters": []
+    },
+    {
+      "type": "service",
+      "name": "com.vk.push.authsdk.ipc.AuthService",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.HOST_SERVICE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "androidx.work.impl.background.systemjob.SystemJobService",
+      "required_permission": "android.permission.BIND_JOB_SERVICE",
+      "intent_filters": []
+    },
+    {
+      "type": "receiver",
+      "name": "one.me.android.initialization.BootCompletedReceiver",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.BOOT_COMPLETED",
+            "android.intent.action.QUICKBOOT_POWERON",
+            "com.htc.intent.action.QUICKBOOT_POWERON"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "receiver",
+      "name": "one.me.background.wake.BackgroundWakeBootReceiver",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.MY_PACKAGE_REPLACED",
+            "android.intent.action.BOOT_COMPLETED"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "receiver",
+      "name": "ru.rustore.sdk.pushclient.internal.arbiter.ArbiterBroadcastReceiver",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.ACTION_MASTER_HOST_UPDATE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "receiver",
+      "name": "com.google.firebase.iid.FirebaseInstanceIdReceiver",
+      "required_permission": "com.google.android.c2dm.permission.SEND",
+      "intent_filters": [
+        {
+          "actions": [
+            "com.google.android.c2dm.intent.RECEIVE"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "receiver",
+      "name": "androidx.work.impl.diagnostics.DiagnosticsReceiver",
+      "required_permission": "android.permission.DUMP",
+      "intent_filters": [
+        {
+          "actions": [
+            "androidx.work.diagnostics.REQUEST_DIAGNOSTICS"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "receiver",
+      "name": "androidx.profileinstaller.ProfileInstallReceiver",
+      "required_permission": "android.permission.DUMP",
+      "intent_filters": [
+        {
+          "actions": [
+            "androidx.profileinstaller.action.INSTALL_PROFILE"
+          ],
+          "categories": [],
+          "data": []
+        },
+        {
+          "actions": [
+            "androidx.profileinstaller.action.SKIP_FILE"
+          ],
+          "categories": [],
+          "data": []
+        },
+        {
+          "actions": [
+            "androidx.profileinstaller.action.SAVE_PROFILE"
+          ],
+          "categories": [],
+          "data": []
+        },
+        {
+          "actions": [
+            "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    },
+    {
+      "type": "provider",
+      "name": "com.vk.push.core.deviceid.contentprovider.VkpnsDeviceIdContentProvider",
+      "required_permission": null,
+      "intent_filters": [
+        {
+          "actions": [
+            "com.vk.push.GET_DEVICE_ID"
+          ],
+          "categories": [],
+          "data": []
+        }
+      ]
+    }
+  ],
+  "cleartext_permitted_domains": [
+    "mobileid.megafon.ru",
+    "idgw.mobileid.mts.ru",
+    "hhe.mts.ru",
+    "he-mc.tele2.ru",
+    "he-mc.t2.ru",
+    "balance.beeline.ru",
+    "nuc-cdp.voskhod.ru",
+    "nuc-cdp.digital.gov.ru"
+  ],
+  "network_domain_rules": [
+    {
+      "domain": "mobileid.megafon.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "idgw.mobileid.mts.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "hhe.mts.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "he-mc.tele2.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "he-mc.t2.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "balance.beeline.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "nuc-cdp.voskhod.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    },
+    {
+      "domain": "nuc-cdp.digital.gov.ru",
+      "include_subdomains": false,
+      "cleartext_permitted": true
+    }
+  ],
+  "network_xmltree_sha256": "48672ee377905f8d0a416bd7ffc0e6aaf95e7eb083318d25844cf32b40db7227",
+  "dex_string_hits": {
+    "InstalledPackagesProvider": {
+      "classes.dex": 1,
+      "classes2.dex": 0,
+      "classes3.dex": 0
+    },
+    "getInstalledPackages": {
+      "classes.dex": 1,
+      "classes2.dex": 1,
+      "classes3.dex": 0
+    },
+    "DiskUsageWorker": {
+      "classes.dex": 2,
+      "classes2.dex": 0,
+      "classes3.dex": 1
+    },
+    "FcmMessagingService": {
+      "classes.dex": 0,
+      "classes2.dex": 0,
+      "classes3.dex": 1
+    },
+    "RustoreMessagingService": {
+      "classes.dex": 0,
+      "classes2.dex": 1,
+      "classes3.dex": 1
+    },
+    "PackageInstaller": {
+      "classes.dex": 3,
+      "classes2.dex": 4,
+      "classes3.dex": 4
+    },
+    "DexClassLoader": {
+      "classes.dex": 0,
+      "classes2.dex": 2,
+      "classes3.dex": 0
+    },
+    "addJavascriptInterface": {
+      "classes.dex": 0,
+      "classes2.dex": 0,
+      "classes3.dex": 1
+    },
+    "MediaProjection": {
+      "classes.dex": 0,
+      "classes2.dex": 3,
+      "classes3.dex": 4
+    }
+  },
+  "interpretation": {
+    "manifest_permissions": "Declarations, not evidence of grant or use.",
+    "exported_components": "Manifest exposure, not an exploitability finding.",
+    "cleartext_permitted_domains": "Policy allowance, not observed cleartext traffic.",
+    "dex_string_hits": "Raw UTF-8 byte counts, not proof of reachability or execution."
+  }
+}
